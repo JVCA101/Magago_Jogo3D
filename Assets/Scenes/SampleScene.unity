@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jump: 5
+  jump: 7
   animator: {fileID: 758611039}
 --- !u!1 &705507993
 GameObject:

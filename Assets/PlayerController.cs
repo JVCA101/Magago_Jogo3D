@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jump = 5f;
+    private int jumpCount = 0;
     [SerializeField] private Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         if(dx != 0 || dz != 0)
         {
             animator.SetBool("Moving", true);
+            animator.SetFloat("Velocity", dx + dz);
         }
         else
         {
@@ -29,9 +31,14 @@ public class PlayerController : MonoBehaviour
         }
         transform.position += new Vector3(dx, 0, dz);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount<1)
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up * jump, ForceMode.Impulse);
+            jumpCount++;
+        }
+        if(transform.position.y < 0.01)
+        {
+            jumpCount = 0;
         }
     }
 }
