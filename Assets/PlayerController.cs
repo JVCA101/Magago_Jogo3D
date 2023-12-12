@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         if(dx != 0 || dz != 0)
         {
             animator.SetBool("Moving", true);
-            animator.SetFloat("Velocity", dx + dz);
+            animator.SetFloat("Velocity", (dx + dz)*speed);
         }
         else
         {
