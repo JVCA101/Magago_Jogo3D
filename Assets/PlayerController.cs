@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dx = Input.GetAxis("Horizontal") * speed;
-        float dz = Input.GetAxis("Vertical") * speed;
+        float dx = Input.GetAxis("Horizontal") * speed * (Input.GetKey(KeyCode.LeftControl) ? 2 : 1);
+        float dz = Input.GetAxis("Vertical") * speed * (Input.GetKey(KeyCode.LeftControl) ? 2 : 1);
         Vector3 velocity = new Vector3(dx, 0, dz);
         if(dx != 0 || dz != 0)
         {
