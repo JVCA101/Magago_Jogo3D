@@ -345,6 +345,7 @@ MonoBehaviour:
   speed: 5
   jump: 7
   animator: {fileID: 758611039}
+  eyeSpeed: 5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,10 +612,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d84cd92751b80d48a643392f49eb7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  camHeight: 5
-  camDistance: 10
   player: {fileID: 61935021}
+  camDistanceDefault: 8
+  camHeightDefault: 3
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  minY: -1.5
+  maxY: 20
 --- !u!1001 &1169793845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -723,6 +728,7 @@ MonoBehaviour:
   speed: 5
   jump: 5
   animator: {fileID: 0}
+  eyeSpeed: 5
 --- !u!54 &1828934594
 Rigidbody:
   m_ObjectHideFlags: 0

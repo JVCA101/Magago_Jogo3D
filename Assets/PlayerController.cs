@@ -11,12 +11,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private WarriorController warriorController;
+    [SerializeField] private float eyeSpeed = 5f;
+    private Quaternion baseOrientation;
+    private Quaternion lookingDirection;
+    private float mouseH = 0;
     // Start is called before the first frame update
     void Start()
     {
         GameObject child = transform.GetChild(0).gameObject;
         animator = child.GetComponent<Animator>();
         warriorController = GetComponent<WarriorController>();
+
+        baseOrientation = transform.localRotation;  
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -29,13 +37,22 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Moving", true);
             animator.SetFloat("Velocity", velocity.magnitude);
+            // if(velocity.magnitude > 1f)
+            //     transform.rotation = Quaternion.LookRotation(velocity);
         }
         else
         {
             animator.SetBool("Moving", false);
             animator.SetFloat("Velocity", 0);
         }
-        transform.position += (velocity * Time.deltaTime);
+        transform.Translate(velocity * Time.deltaTime, Space.Self);;  
+        mouseH += Input.GetAxis("Mouse X");
+        
+        Quaternion rotY;
+        float angleY = mouseH * eyeSpeed;
+        rotY = Quaternion.AngleAxis(angleY, Vector3.up);
+
+        transform.localRotation = baseOrientation*rotY;
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount<1)
         {
@@ -46,5 +63,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpCount = 0;
         }
+        
     }
 }
