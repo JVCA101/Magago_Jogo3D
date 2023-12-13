@@ -317,7 +317,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mage Warrior
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4743523076812310306, guid: dd9d3d7655ac3934d9096722ca483868, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -342,9 +343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b58f82c09781349b7aa3b916fafea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jump: 7
   animator: {fileID: 758611039}
+  speed: 5
+  jumpForce: 5
   eyeSpeed: 5
 --- !u!1 &705507993
 GameObject:
@@ -456,6 +457,10 @@ PrefabInstance:
     - target: {fileID: 150160, guid: 3a555105d974c19488b7be673891a5d4, type: 3}
       propertyPath: m_Name
       value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 150160, guid: 3a555105d974c19488b7be673891a5d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 450160, guid: 3a555105d974c19488b7be673891a5d4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -613,11 +618,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 61935021}
-  camDistanceDefault: 8
-  camHeightDefault: 3
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  camDistanceDefault: 8
+  camHeightDefault: 3
   minY: -1.5
   maxY: 20
 --- !u!1001 &1169793845
@@ -725,9 +730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b58f82c09781349b7aa3b916fafea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jump: 5
   animator: {fileID: 0}
+  speed: 5
+  jumpForce: 5
   eyeSpeed: 5
 --- !u!54 &1828934594
 Rigidbody:

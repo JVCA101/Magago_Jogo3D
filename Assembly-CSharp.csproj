@@ -65,6 +65,7 @@
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
      <Compile Include="Assets\ScenesController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
+     <Compile Include="Assets\GhostController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\Gravity.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorInputSystemController.cs" />
@@ -719,8 +720,14 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
         <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
         <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
         <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
@@ -752,11 +759,17 @@
     <Reference Include="Unity.Rider.Editor">
         <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
         <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>

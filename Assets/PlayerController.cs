@@ -5,22 +5,25 @@ using WarriorAnimsFREE;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float jump = 5f;
-    private int jumpCount = 0;
+    [Header("GameObjects")]
     [SerializeField] private Animator animator;
 
-    private WarriorController warriorController;
+    [Header("Movement settings")]
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpForce = 5f;
+    private int jumpCount = 0;
+
+    [Header("Camera settings")]
     [SerializeField] private float eyeSpeed = 5f;
     private Quaternion baseOrientation;
-    private Quaternion lookingDirection;
+    // private Quaternion lookingDirection;
     private float mouseH = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject child = transform.GetChild(0).gameObject;
         animator = child.GetComponent<Animator>();
-        warriorController = GetComponent<WarriorController>();
 
         baseOrientation = transform.localRotation;  
         Cursor.lockState = CursorLockMode.Locked;
@@ -56,7 +59,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount<1)
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jump, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            animator.SetTrigger("Jump");
             jumpCount++;
         }
         if(transform.position.y < 0.01)
