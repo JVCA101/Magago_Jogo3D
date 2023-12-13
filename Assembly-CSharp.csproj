@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{59e50700-8d74-a34b-1055-7d81ab74fce3}</ProjectGuid>
+    <ProjectGuid>{aa91bb0c-8f0e-d1f2-aa07-4b6da7bf8391}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -41,14 +41,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorAnimatorEvents.cs" />
+     <Compile Include="Assets\Scripts\CamController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorInputController.cs" />
      <Compile Include="Assets\Asset_Packages\Mini Simple Characters Skeleton Demo\Readme\Scripts\Readme.cs" />
-     <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorData.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\AnimatorParentMove.cs" />
+     <Compile Include="Assets\Scripts\SkeletonController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorTiming.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Math3d.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorController.cs" />
+     <Compile Include="Assets\Scripts\ScenesController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\PlayerInputController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\IKHands.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\SimpleStateMachine.cs" />
@@ -58,21 +60,20 @@
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorMovementController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollisionType.cs" />
-     <Compile Include="Assets\SkeletonController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Demo Elements\Code\GUIControls.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
-     <Compile Include="Assets\CamController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\PlayerMachine.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
-     <Compile Include="Assets\ScenesController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
-     <Compile Include="Assets\GhostController.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\Gravity.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\PlayerCamera.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorInputSystemController.cs" />
      <Compile Include="Assets\Asset_Packages\GhostCharacter_Free\Scripts\GhostScript.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperStateMachine.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\PlayerMachineDebug.cs" />
+     <Compile Include="Assets\Scripts\GhostController.cs" />
+     <Compile Include="Assets\Scripts\TerrainController.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -347,10 +348,10 @@
         <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="ReportGeneratorMerged">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\PackageCache\com.unity.testtools.codecoverage@1.2.4\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -719,85 +720,85 @@
         <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Updater">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
-        <HintPath>C:\Projetos\Unity\Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+        <HintPath>C:\Users\joaov\Desktop\Desenvolvimento de Jogos\Magago_Jogo3D\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,7 @@ public class CamController : MonoBehaviour
     [Header("Camera Settings")]
     [SerializeField] private float camDistanceDefault = 10f;
     [SerializeField] private float camHeightDefault = 5f;
-    [SerializeField] private float minY = -1.5f;
+    [SerializeField] private float minY = 0.5f;
     [SerializeField] private float maxY = 20f;
     private float camDistance = 10f;
     private float camHeight = 5f;
