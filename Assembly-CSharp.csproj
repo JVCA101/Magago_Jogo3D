@@ -58,6 +58,7 @@
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorMovementController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollisionType.cs" />
+     <Compile Include="Assets\SkeletonController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Demo Elements\Code\GUIControls.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
      <Compile Include="Assets\CamController.cs" />
