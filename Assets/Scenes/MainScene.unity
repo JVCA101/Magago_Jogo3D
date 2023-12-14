@@ -483,15 +483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541e16fdb2e7ca34db1e43fbec3da45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  method: 5
-  largeScale: 0
-  roughness: 0
-  initialHeight: 0
-  faultIterations: 0
-  amplitudeMin: -0.3
-  amplitude: 0.3
-  frequency: 1
-  oitavas: 3
+  amplitude: 0.15
+  frequency: 0.5
+  oitavas: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

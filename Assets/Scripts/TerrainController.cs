@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class TerrainController : MonoBehaviour
 {
-    [SerializeField] private float amplitudeMin;
-    [SerializeField] private float amplitude;
-    [SerializeField] private float frequency;
-    [SerializeField] private int oitavas;
+    [SerializeField] private float amplitude = 0.15f;
+    [SerializeField] private float frequency = 0.5f;
+    [SerializeField] private int oitavas = 2;
 
     private float[,] heights;
     private int width, height;
@@ -21,24 +20,7 @@ public class TerrainController : MonoBehaviour
         height = terrain.terrainData.heightmapResolution;
         Debug.Log(width + ", " + height);
         heights = new float[width, height];
-
-        oitavas = Random.Range(1, 5);
-
-        switch(oitavas)
-        {
-            case 2:  //? gelo
-            break;
-            case 3:  //? montanhas ou floresta
-            break;
-            case 4:  // deserto com dunas
-            amplitude = 0.15f;
-            amplitudeMin = -0.15f;
-            // terrain texture
-            // terrain.terrainData.splatPrototypes[0].texture = Resources.Load<Texture2D>("Textures/Desert");
-            break;
-            default:
-            break;
-        }
+        
         for(int i = 0; i < oitavas; i++)
             PerlinNoise(i);
 
