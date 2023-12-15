@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using WarriorAnimsFREE;
 
 public class PlayerController : MonoBehaviour
@@ -20,13 +21,20 @@ public class PlayerController : MonoBehaviour
     // private Quaternion lookingDirection;
     private float mouseH = 0;
 
+    [Header("Health settings")]
+    private float health = 100f;
+    public Image healthBar;
+
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject child = transform.GetChild(0).gameObject;
         animator = child.GetComponent<Animator>();
 
-        baseOrientation = transform.localRotation;  
+        baseOrientation = transform.localRotation;
+
+        // Depois retirar, está sendo chamado no ScenesController.StartGame()
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -81,5 +89,22 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("Trigger Number", 1);
             animator.SetTrigger("Trigger");
         }
+
+        // if(Input.GetKeyDown(KeyCode.Q))
+        //     TakeDamage();
     }
+
+    void TakeDamage(float damage = 10f)
+    {
+        health -= damage;
+        healthBar.fillAmount = health / 100f;
+        if(health <= 0)
+        {
+            // animator.SetInteger("Trigger Number", 2);
+            // animator.SetTrigger("Trigger");
+            // animator.SetBool("Dead", true);
+            ScenesController.GameOver();
+        }
+    }
+
 }
