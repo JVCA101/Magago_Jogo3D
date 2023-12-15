@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Health settings")]
     private float health = 100f;
-    public Image healthBar;
+    [SerializeField] private Image healthBar;
 
 
     // Start is called before the first frame update
@@ -76,7 +76,37 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
         //! Problema com o pulo, transform.position.y <= 0.1f
-        else if(!isGrounded && GetComponent<Rigidbody>().velocity.y <= 0 && transform.position.y <=0.1f)
+        // else if(!isGrounded && GetComponent<Rigidbody>().velocity.y <= 0 && transform.position.y < 0.1f)
+        // {
+        //     jumpCount = 0;
+        //     animator.SetInteger("Jumping", 0);
+        //     animator.SetInteger("Trigger Number", 1);
+        //     animator.SetTrigger("Trigger");
+        //     isGrounded = true;
+        // }
+        else if(!isGrounded && GetComponent<Rigidbody>().velocity.y < 0)
+        {
+            animator.SetInteger("Jumping", 2);
+            animator.SetInteger("Trigger Number", 1);
+            animator.SetTrigger("Trigger");
+        }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            animator.SetInteger("Trigger Number", 3);
+            animator.SetTrigger("Trigger");
+        }
+
+        // if(Input.GetKeyDown(KeyCode.Q))
+        //     TakeDamage();
+    }
+
+    void OnCollision(Collision collision)
+    {
+        // if(collision.gameObject.tag == "Enemy")
+        // {
+        //     TakeDamage();
+        // }
+        if(collision.gameObject.tag == "Terrain")
         {
             jumpCount = 0;
             animator.SetInteger("Jumping", 0);
@@ -84,15 +114,6 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("Trigger");
             isGrounded = true;
         }
-        else if(!isGrounded && GetComponent<Rigidbody>().velocity.y < 0)
-        {
-            animator.SetInteger("Jumping", 2);
-            animator.SetInteger("Trigger Number", 1);
-            animator.SetTrigger("Trigger");
-        }
-
-        // if(Input.GetKeyDown(KeyCode.Q))
-        //     TakeDamage();
     }
 
     void TakeDamage(float damage = 10f)
