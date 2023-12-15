@@ -100,13 +100,13 @@ public class PlayerController : MonoBehaviour
         //     TakeDamage();
     }
 
-    void OnCollision(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         // if(collision.gameObject.tag == "Enemy")
         // {
         //     TakeDamage();
         // }
-        if(collision.gameObject.tag == "Terrain")
+        if(collision.gameObject.tag == "Terrain" && !isGrounded && GetComponent<Rigidbody>().velocity.y <= 0)
         {
             jumpCount = 0;
             animator.SetInteger("Jumping", 0);
