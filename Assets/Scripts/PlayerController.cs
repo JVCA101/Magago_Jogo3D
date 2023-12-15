@@ -75,7 +75,8 @@ public class PlayerController : MonoBehaviour
             jumpCount++;
             isGrounded = false;
         }
-        else if(!isGrounded && GetComponent<Rigidbody>().velocity.y < 0 && transform.position.y <=0.1f)
+        //! Problema com o pulo, transform.position.y <= 0.1f
+        else if(!isGrounded && GetComponent<Rigidbody>().velocity.y <= 0 && transform.position.y <=0.1f)
         {
             jumpCount = 0;
             animator.SetInteger("Jumping", 0);

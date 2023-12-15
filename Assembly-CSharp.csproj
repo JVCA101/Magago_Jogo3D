@@ -44,6 +44,9 @@
      <Compile Include="Assets\Scripts\CamController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorInputController.cs" />
      <Compile Include="Assets\Asset_Packages\Mini Simple Characters Skeleton Demo\Readme\Scripts\Readme.cs" />
+     <Compile Include="Assets\Scripts\TreeNodes\SequenceNode.cs" />
+     <Compile Include="Assets\Scripts\TreeNodes\AttackPlayer.cs" />
+     <Compile Include="Assets\Scripts\TreeNodes\SelectorNode.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\WarriorData.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\AnimatorParentMove.cs" />
      <Compile Include="Assets\Scripts\SkeletonController.cs" />
@@ -53,6 +56,7 @@
      <Compile Include="Assets\Scripts\ScenesController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\PlayerInputController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Warrior FREE\Code\IKHands.cs" />
+     <Compile Include="Assets\Scripts\TreeNodes\BehaviourTreeNode.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\SimpleStateMachine.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Demo Elements\Code\CameraController.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
@@ -63,6 +67,7 @@
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\Demo Elements\Code\GUIControls.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\Scripts\PlayerMachine.cs" />
+     <Compile Include="Assets\Scripts\TreeNodes\Wander.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
      <Compile Include="Assets\Asset_Packages\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
