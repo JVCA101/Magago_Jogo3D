@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("GameObjects")]
     [SerializeField] private Animator animator;
+    private Rigidbody rb;
 
     [Header("Movement settings")]
     [SerializeField] private float speed = 5f;
@@ -24,12 +25,14 @@ public class PlayerController : MonoBehaviour
     [Header("Health settings")]
     private float health = 100f;
     [SerializeField] private Image healthBar;
+    private AudioSource attackSound;
 
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject child = transform.GetChild(0).gameObject;
+        rb = GetComponent<Rigidbody>();
         animator = child.GetComponent<Animator>();
 
         baseOrientation = transform.localRotation;
@@ -37,6 +40,8 @@ public class PlayerController : MonoBehaviour
         // Depois retirar, está sendo chamado no ScenesController.StartGame()
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        attackSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -66,25 +71,15 @@ public class PlayerController : MonoBehaviour
 
         transform.localRotation = baseOrientation*rotY;
 
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount<1)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.SetInteger("Jumping", 1);
             animator.SetInteger("Trigger Number", 1);
             animator.SetTrigger("Trigger");
-            jumpCount++;
             isGrounded = false;
         }
-        //! Problema com o pulo, transform.position.y <= 0.1f
-        // else if(!isGrounded && GetComponent<Rigidbody>().velocity.y <= 0 && transform.position.y < 0.1f)
-        // {
-        //     jumpCount = 0;
-        //     animator.SetInteger("Jumping", 0);
-        //     animator.SetInteger("Trigger Number", 1);
-        //     animator.SetTrigger("Trigger");
-        //     isGrounded = true;
-        // }
-        else if(!isGrounded && GetComponent<Rigidbody>().velocity.y < 0)
+        else if(!isGrounded && rb.velocity.y < 0)
         {
             animator.SetInteger("Jumping", 2);
             animator.SetInteger("Trigger Number", 1);
@@ -92,8 +87,9 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.F))
         {
-            animator.SetInteger("Trigger Number", 3);
+            animator.SetInteger("Trigger Number", 2);
             animator.SetTrigger("Trigger");
+            attackSound.Play();
         }
 
         // if(Input.GetKeyDown(KeyCode.Q))
@@ -106,7 +102,7 @@ public class PlayerController : MonoBehaviour
         // {
         //     TakeDamage();
         // }
-        if(collision.gameObject.tag == "Terrain" && !isGrounded && GetComponent<Rigidbody>().velocity.y <= 0)
+        if(collision.gameObject.tag == "Terrain" && !isGrounded && rb.velocity.y <= 0)
         {
             jumpCount = 0;
             animator.SetInteger("Jumping", 0);
