@@ -13,7 +13,7 @@ public class ScenesController : MonoBehaviour
         SceneManager.LoadScene("GameOverScene");
     }
 
-    public void Victory()
+    public static void Victory()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

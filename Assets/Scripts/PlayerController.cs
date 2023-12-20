@@ -13,20 +13,16 @@ public class PlayerController : MonoBehaviour
     [Header("Movement settings")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    private int jumpCount = 0;
     private bool isGrounded = true;
 
     [Header("Camera settings")]
     [SerializeField] private float eyeSpeed = 5f;
     private Quaternion baseOrientation;
-    // private Quaternion lookingDirection;
     private float mouseH = 0;
 
-    [Header("Health settings")]
     private float health = 100f;
     [SerializeField] private Image healthBar;
     private AudioSource attackSound;
-
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +33,6 @@ public class PlayerController : MonoBehaviour
 
         baseOrientation = transform.localRotation;
 
-        // Depois retirar, está sendo chamado no ScenesController.StartGame()
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -54,8 +49,6 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Moving", true);
             animator.SetFloat("Velocity", velocity.magnitude);
-            // if(velocity.magnitude > 1f)
-            //     transform.rotation = Quaternion.LookRotation(velocity);
         }
         else
         {
@@ -71,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
         transform.localRotation = baseOrientation*rotY;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.SetInteger("Jumping", 1);
@@ -85,26 +78,20 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("Trigger Number", 1);
             animator.SetTrigger("Trigger");
         }
+
         if(Input.GetKeyDown(KeyCode.F))
         {
             animator.SetInteger("Trigger Number", 2);
             animator.SetTrigger("Trigger");
             attackSound.Play();
         }
-
-        // if(Input.GetKeyDown(KeyCode.Q))
-        //     TakeDamage();
+        
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        // if(collision.gameObject.tag == "Enemy")
-        // {
-        //     TakeDamage();
-        // }
         if(collision.gameObject.tag == "Terrain" && !isGrounded && rb.velocity.y <= 0)
         {
-            jumpCount = 0;
             animator.SetInteger("Jumping", 0);
             animator.SetInteger("Trigger Number", 1);
             animator.SetTrigger("Trigger");
@@ -112,15 +99,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void TakeDamage(float damage = 10f)
+    public void TakeDamage(float damage = 10f)
     {
         health -= damage;
         healthBar.fillAmount = health / 100f;
         if(health <= 0)
         {
-            // animator.SetInteger("Trigger Number", 2);
-            // animator.SetTrigger("Trigger");
-            // animator.SetBool("Dead", true);
             ScenesController.GameOver();
         }
     }

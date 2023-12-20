@@ -40,16 +40,18 @@ public class CamController : MonoBehaviour
             newHeight = maxY;
         Vector3 height = Vector3.up * newHeight;
 
-        Vector3 expectedPosition = target.position - target.forward * camDistance + height;
-        Ray ray = new Ray(target.position, (expectedPosition - target.position).normalized);
+        Vector3 pos = target.position + target.localScale.y * Vector3.up;
+
+        Vector3 expectedPosition = pos - target.forward * camDistance + height;
+        Ray ray = new Ray(pos, (expectedPosition - pos).normalized);
         RaycastHit hit;
-        Debug.DrawLine(target.position, expectedPosition, Color.green);
+        Debug.DrawLine(pos, expectedPosition, Color.green);
         if(Physics.Raycast(ray, out hit, camDistance, collisionLayer))
             adjustedDistance = hit.distance;
         else
             adjustedDistance = camDistance;
             
-        transform.position = target.position - target.forward * adjustedDistance;
+        transform.position = pos - target.forward * adjustedDistance;
         transform.position += height;
 
         transform.LookAt(target);
