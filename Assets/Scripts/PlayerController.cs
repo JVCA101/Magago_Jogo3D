@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
     private float health = 100f;
     [SerializeField] private Image healthBar;
-    private AudioSource attackSound;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +34,6 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        attackSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -83,7 +80,6 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetInteger("Trigger Number", 2);
             animator.SetTrigger("Trigger");
-            attackSound.Play();
         }
         
     }
